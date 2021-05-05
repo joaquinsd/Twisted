@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+<% if signed_in? %>
+  <%= render 'form', tweet: @tweet %>
+  <br>
+<% end %>
+<h2>Tweets</h2>
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <th>Content</th>
+        <th>Author</th>
+        <th>Likes</th>
+        <th>Retweets</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @tweets.reverse.each do |tweet| %>
+        <tr>
+          <td><%= tweet.content %></td>
+          <td><%= link_to image_tag(tweet.user_pic, style: 'width:50px; height:50px'), tweet.user_pic %></td>
+          <td><%= tweet.like_counter %></td>
+          <td></td>
+          <% if signed_in? && tweet.user == current_user %>
+          <td><%= link_to 'Edit', edit_tweet_path(tweet), class: 'btn btn-outline-secondary' %></td>
+          <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger' %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
