@@ -1,4 +1,18 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Author:</strong>
+  <%= @tweet.author %>
+  <td><%= link_to image_tag(@tweet.user_pic, style: 'width:50px; height:50px'), @tweet.user_pic %></td>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @tweet.content %>
+</p>
+<p>
+  <strong>Published:</strong>
+  <%= distance_of_time_in_words(Time.now, @tweet.created_at) %> ago
+</p>
 <%= link_to 'Edit', edit_tweet_path(@tweet) %> |
 <%= link_to 'Back', tweets_path %>
