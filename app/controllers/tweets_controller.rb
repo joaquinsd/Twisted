@@ -1,26 +1,21 @@
 class TweetsController < ApplicationController
-  before_action :set_tweet, only: %i[ show edit update destroy ]
+  before_action :set_tweet, only: %i[ show edit update destroy like retweet]
 
-  # GET /tweets or /tweets.json
   def index
     @tweets = Tweet.order(created_at: :desc).page(params[:page])
     @tweet = Tweet.new
   end
 
-  # GET /tweets/1 or /tweets/1.json
   def show
+    @tweet = Tweet.find(params[:id])
   end
 
-  # GET /tweets/new
   def new
-    # @tweet = Tweet.new
   end
 
-  # GET /tweets/1/edit
   def edit
   end
 
-  # POST /tweets or /tweets.json
   def create
     @tweet = Tweet.new(tweet_params.merge(user: current_user))
 
@@ -35,7 +30,6 @@ class TweetsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /tweets/1 or /tweets/1.json
   def update
     respond_to do |format|
       if @tweet.update(tweet_params)
@@ -48,13 +42,27 @@ class TweetsController < ApplicationController
     end
   end
 
-  # DELETE /tweets/1 or /tweets/1.json
   def destroy
     @tweet.destroy
     respond_to do |format|
       format.html { redirect_to tweets_url, notice: "Tweet was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def like
+    @tweet.like_toggler(current_user)
+
+    respond_to do |format|
+      if @tweet.liked?(current_user)
+        format.html { redirect_to root_path, notice: 'Tweet liked' }
+      else
+        format.html { redirect_to root_path, notice: 'Tweet unliked' }
+      end
+    end
+  end
+
+  def retweet
   end
 
   private

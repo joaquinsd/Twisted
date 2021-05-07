@@ -14,5 +14,15 @@
   <strong>Published:</strong>
   <%= distance_of_time_in_words(Time.now, @tweet.created_at) %> ago
 </p>
+
+<ul>
+  <% @tweet.likes.each do |like| %>
+    <li>
+      <%= image_tag(like.user_pic, style: 'width:50px; height:50px') %>
+    </li>
+  <% end %>
+</ul>
+<% if @tweet.user == current_user %>
 <%= link_to 'Edit', edit_tweet_path(@tweet) %> |
+<% end %>
 <%= link_to 'Back', tweets_path %>

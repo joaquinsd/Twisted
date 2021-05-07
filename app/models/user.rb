@@ -3,6 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         has_many :tweets
-         has_many :likes
+  
+  has_many :tweets
+  has_many :likes
+
+  def to_s
+    username
+  end
 end
