@@ -1,6 +1,8 @@
 class Tweet < ApplicationRecord
-  has_many :likes
+  has_many :likes, dependent: :destroy
+  has_many :tweets, class_name: 'Tweet', foreign_key: 'tweet_id', dependent: :destroy
   belongs_to :user
+  belongs_to :ref_tweet, class_name: 'Tweet', foreign_key: 'tweet_id', optional: true
   validates :content, presence: true
   paginates_per 50
 
@@ -35,8 +37,12 @@ class Tweet < ApplicationRecord
   def like_counter
     likes.count
   end
-  
-  # def retweet_counter
-  #   retweet.count  
-  # end
+
+  def retweet(user)
+    Tweet.create(ref_tweet: self, content: content, user: user)
+  end
+
+  def retweet_counter
+    tweets.count
+  end
 end

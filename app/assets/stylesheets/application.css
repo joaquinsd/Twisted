@@ -16,4 +16,57 @@
  @import "font-awesome";
  @import "bootstrap/scss/bootstrap";
  @import 'font_awesome5_webfont';
+
+.px-2{
+  text-decoration: none;
+}
+
+.red-icon {
+  color: red;
+}
+
+.card-tweet {
+  box-shadow: 0 2px 2px 0 , 0 6px 20px 0 ;
+  margin-top: 1rem;
+}
+
+.card-retweet {
+  border-style: solid;
+  border-width: 1px;
+  margin-top: 1rem;
+}
+
+ .user-picture {
+  height: 4rem;
+  width: 4rem;
+  display: inline-block;
+  border-radius: 50%;
+  object-fit: cover;
+  vertical-align: middle;
+  white-space: normal;
+}
  
+
+.tweet-header {
+  display: inline-block;
+  white-space: normal;
+  vertical-align: middle;
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+}
+
+.tweet-buttons{
+  float: right;
+  text-decoration: none;
+  white-space: normal;
+}
+
+.tweet-title {
+  display: inline-block;
+  margin-bottom: 0px;
+}
+
+.tweet-detail-li {
+  display: inline-block;
+}
+

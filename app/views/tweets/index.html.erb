@@ -1,53 +1,7 @@
 <p id="notice"><%= notice %></p>
-<% if signed_in? %>
-  <%= render 'form', tweet: @tweet %>
-  <br>
+<% if signed_in? %> <%= render 'form', tweet: @tweet %>
+<br/>
 <% end %>
-<h2>Tweets</h2>
-<div class="container">
-  <table>
-    <thead>
-      <tr>
-        <th>Content</th>
-        <th>Author</th>
-        <th>Likes</th>
-        <th></th>
-        <th>Created </th>
-        <th>Retweets</th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @tweets.each do |tweet| %>
-        <tr>
-          <td><%= tweet.content %></td>
-          <td><%= link_to image_tag(tweet.user_pic, style: 'width:50px; height:50px'), tweet.user_pic %></td>
-          <td><%= tweet.like_counter %></td>
-          <% if signed_in? %>
-          <td>
-            <%= link_to tweet_like_path(tweet), method: :post, class:'px-2' do %>
-              <% if tweet.liked?(current_user) %>
-                <%= fa_icon('heart', type: :solid) %>
-              <% else %>
-                <%= fa_icon('heart', type: :regular) %>
-              <% end %>
-            <% end %>
-          
-          </td>
-          <% else %>
-          <td></td>
-          <% end %>
-          <td><%= link_to "#{distance_of_time_in_words(Time.now, tweet.created_at)} ago", tweet_path(tweet) %> </td>
-          <td><%= fa_icon('retweet', type: :solid) %></td>
-          <% if signed_in? && tweet.user == current_user %>
-          <td><%= link_to 'Edit', edit_tweet_path(tweet), class: 'btn btn-outline-secondary' %></td>
-          <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger' %></td>
-          <% end %>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
-
-<%= paginate @tweets %>
+<h2 class="display-4 my-3">Tweets</h2>
+<div class="row row-cols-1 row-cols-xl-2"><%= render(@tweets) %></div>
+<div class="my-3"><%= paginate @tweets %></div>

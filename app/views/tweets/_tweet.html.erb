@@ -1,0 +1,40 @@
+<div class="col mb-3">
+  <div class="card <%= local_assigns[:retweet] ? 'card-retweet' : 'card-tweet' %>">
+    <div class="card-body">
+      <div class="tweet-header">
+        <%= link_to image_tag(tweet.user_pic, style: 'width:50px; height:50px', class: 'user-picture'), tweet.user_pic %>
+        <div class="tweet-header">
+          <h5 class="card-title tweet-title"><%= tweet.user %></h5> <br>
+          <small class="card-subtitle text-muted">
+            <%= link_to "#{distance_of_time_in_words(Time.now, tweet.created_at)} ago", tweet_path(tweet) %>
+          </small>
+        </div> 
+      </div>
+      <p class="card-text"><%= tweet.content %></p>
+      <% if tweet.ref_tweet %>
+      <%= render tweet.ref_tweet, retweet: true %>
+      <% end %>
+      <% if signed_in? %>
+      <div class="card-text tweet-buttons">
+        <%= link_to tweet_like_path(tweet), method: :post, class:'px-2' do %>
+          <% if tweet.liked?(current_user) %>
+            <%= fa_icon('heart', type: :solid, class: 'red-icon') %>
+          <% else %>
+            <%= fa_icon('heart', type: :regular) %> 
+          <% end %>
+        <% end %>
+        <%= tweet.like_counter %> 
+        <%= link_to tweet_retweet_path(tweet), method: :post, class:'px-2' do %>
+        <%= fa_icon('retweet', type: :solid) %>
+        <% end %>
+        <%= tweet.retweet_counter %> 
+      </div>
+      <% else %>
+        <div class="card-text tweet-buttons text-muted">
+              <%= fa_icon('heart', type: :solid) %><%= tweet.like_counter %>
+              <%= fa_icon('retweet', type: :solid) %><%= tweet.retweet_counter %> 
+        </div>
+      <% end %> 
+    </div>
+  </div>
+</div>

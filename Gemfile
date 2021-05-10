@@ -61,5 +61,7 @@ gem 'devise'
 gem 'kaminari'
 # Use Font Awesome Icons for the app
 gem 'font_awesome5_rails'
+# Use Faker for generation of quotes
+gem 'faker'
 
 
