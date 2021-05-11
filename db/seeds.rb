@@ -7,16 +7,16 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-# pics = %w[ https://images2-mega.cdn.mdstrm.com/etcetera/2018/01/11/5290_1_5a57605f3e92c.jpg?d=500x500
-# https://images2-mega.cdn.mdstrm.com/etcetera/2017/09/13/4425_2_59b988c2e5d65.jpg?d=500x500
-# https://pbs.twimg.com/profile_images/2594744424/image.jpg
-# https://i1.sndcdn.com/artworks-000526465941-dx4yii-t500x500.jpg
-# https://i1.sndcdn.com/avatars-000231745424-ysagc7-t500x500.jpg
-#  https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy2mGo6Y1G9bSrnXcBqtlElM6QjyuitqkUdDJ-zyLOoo1i4GmXfuFQhmhp62j_mFiSomw&usqp=CAU
-#  https://i1.sndcdn.com/artworks-000087879475-sbbjd7-t500x500.jpg
-#  https://i1.sndcdn.com/artworks-000052366663-oe671e-t500x500.jpg
-#  https://static.wikia.nocookie.net/espokemon/images/b/b3/La_historia_del_Charizard_de_Ash_Pok%C3%A9mon_Negro_y_Blanco_Aventuras_en_Teselia_y_m%C3%A1s_all%C3%A1/revision/latest?cb=20200801100911'
-#  https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSofNHyVjj1crlaaveg6T0JY6f1QnLT1dh7AvV0nknXju2M7Qmh5vhoUmV31sZV5QAVv_8&usqp=CAU]
+pics = %w[ https://images2-mega.cdn.mdstrm.com/etcetera/2018/01/11/5290_1_5a57605f3e92c.jpg?d=500x500
+https://images2-mega.cdn.mdstrm.com/etcetera/2017/09/13/4425_2_59b988c2e5d65.jpg?d=500x500
+https://pbs.twimg.com/profile_images/2594744424/image.jpg
+https://i1.sndcdn.com/artworks-000526465941-dx4yii-t500x500.jpg
+https://i1.sndcdn.com/avatars-000231745424-ysagc7-t500x500.jpg
+ https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy2mGo6Y1G9bSrnXcBqtlElM6QjyuitqkUdDJ-zyLOoo1i4GmXfuFQhmhp62j_mFiSomw&usqp=CAU
+ https://i1.sndcdn.com/artworks-000087879475-sbbjd7-t500x500.jpg
+ https://i1.sndcdn.com/artworks-000052366663-oe671e-t500x500.jpg
+ https://static.wikia.nocookie.net/espokemon/images/b/b3/La_historia_del_Charizard_de_Ash_Pok%C3%A9mon_Negro_y_Blanco_Aventuras_en_Teselia_y_m%C3%A1s_all%C3%A1/revision/latest?cb=20200801100911'
+ https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSofNHyVjj1crlaaveg6T0JY6f1QnLT1dh7AvV0nknXju2M7Qmh5vhoUmV31sZV5QAVv_8&usqp=CAU]
 
 20.times do |i|
   pp = pics[rand(0..9)]
