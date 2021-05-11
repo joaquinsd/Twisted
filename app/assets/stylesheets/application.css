@@ -13,9 +13,6 @@
  *= require_tree .
  *= require_self
  */
- @import "font-awesome";
- @import "bootstrap/scss/bootstrap";
- @import 'font_awesome5_webfont';
 
 .px-2{
   text-decoration: none;
