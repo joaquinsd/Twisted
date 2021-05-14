@@ -3,12 +3,18 @@
     <div class="card-body">
       <div class="tweet-header">
         <%= link_to image_tag(tweet.user_pic, style: 'width:50px; height:50px', class: 'user-picture'), tweet.user_pic %>
-        <div class="tweet-header">
+        <div class="tweet-header-left">
           <h5 class="card-title tweet-title"><%= tweet.user %></h5> <br>
           <small class="card-subtitle text-muted">
             <%= link_to "#{distance_of_time_in_words(Time.now, tweet.created_at)} ago", tweet_path(tweet) %>
           </small>
-        </div> 
+        </div>
+        <% if signed_in? && !local_assigns[:retweet] %>
+        <small class="text-muted tweet-unfriend-link">
+          <%= link_to(current_user.friends?(tweet.user) ? 'Unfriend' : 'Friend', user_friend_path(tweet.user), method: :post) %>
+        </small>
+      <% end %>
+
       </div>
       <p class="card-text"><%= tweet.content %></p>
       <% if tweet.ref_tweet %>

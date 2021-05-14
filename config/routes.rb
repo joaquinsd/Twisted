@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations'
       }
+
+  devise_scope :user do
+    post '/users/:id/friend', to: 'users/registrations#friend', as: 'user_friend'
+  end
 end

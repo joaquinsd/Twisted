@@ -63,5 +63,5 @@ gem 'kaminari'
 gem 'font_awesome5_rails'
 # Use Faker for generation of quotes
 gem 'faker'
-
-
+# Use Ransack for the Search Bar
+gem 'ransack'

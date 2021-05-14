@@ -1,6 +1,20 @@
 <p id="notice"><%= notice %></p>
-<% if signed_in? %> <%= render 'form', tweet: @tweet %>
-<br/>
+<% if signed_in? %> 
+  <%= render 'form', tweet: @tweet %>
+  <br/>
+  <h4>People you should be friends with</h4>
+  <div class="row row-cols-2 row-cols-lg-4 suggested-friends-top">
+    <% current_user.suggested_friends.each do |fr| %>
+    <div class="p-2">
+      <div class="suggested-friends">
+        <%= image_tag(fr.profile_pic, style: 'width:50px; height:50px', class: 'user-picture') %>
+        <h5><%= fr %></h5>
+        <br>
+        <%= link_to(current_user.friends?(fr) ? 'Unfriend' : 'Friend', user_friend_path(fr), method: :post) %>
+      </div>
+    </div>
+    <% end %>
+  </div>
 <% end %>
 <h2 class="display-4 my-3">Tweets</h2>
 <div class="row row-cols-1 row-cols-xl-2"><%= render(@tweets) %></div>

@@ -45,10 +45,19 @@
  
 
 .tweet-header {
-  display: inline-block;
   white-space: normal;
   vertical-align: middle;
   margin-bottom: 1rem;
+  padding-left: 0.5rem;
+}
+
+.tweets-header-outer {
+  display: flex;
+}
+
+.tweet-header-left {
+  display: inline-block;
+  vertical-align: middle;
   padding-left: 0.5rem;
 }
 
@@ -65,5 +74,20 @@
 
 .tweet-detail-li {
   display: inline-block;
+}
+
+.suggested-friends-top {
+  margin-right: inherit;
+  margin-left: inherit;
+}
+
+.suggested-friends {
+  white-space: normal;
+  vertical-align: middle;
+  margin-bottom: 1rem;
+}
+
+.tweet-unfriend-link {
+  float: right;
 }
 

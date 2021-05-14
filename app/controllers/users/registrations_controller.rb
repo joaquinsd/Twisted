@@ -4,6 +4,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
 
+  # POST /users/1/friend
+  def friend
+    other_user = User.find(params[:id])
+    current_user.friendship_toggler(other_user)
+
+    respond_to do |format|
+      if current_user.friends?(other_user)
+        format.html { redirect_to root_path, notice: "Congrats you are now friends with #{other_user}" }
+      else
+        format.html { redirect_to root_path, notice: "Congrats you are no longer friends with #{other_user}" }
+      end
+    end
+  end
+
+
   # GET /resource/sign_up
   # def new
   #   super
