@@ -16,6 +16,19 @@
     <% end %>
   </div>
 <% end %>
-<h2 class="display-4 my-3">Tweets</h2>
-<div class="row row-cols-1 row-cols-xl-2"><%= render(@tweets) %></div>
+<div class="my-3 tweets-header-outer">
+  <span class="display-4">Tweets</span>
+  <%= search_form_for @q, class: "form-inline search-bar" do |f| %>
+    <%= f.search_field :content_cont, class: "form-control mr-2" %>
+    <%= f.submit class: "btn btn-info btn-sm" %>
+  <% end %>
+</div>
+<% if @tweets.any? %>
+  <div class="row row-cols-1 row-cols-xl-2">
+    <%= render(@tweets) %>
+  </div>
+<% else %>
+  <h5>No results found</h5>
+  <p>Please check your search</p>
+<% end %>
 <div class="my-3"><%= paginate @tweets %></div>

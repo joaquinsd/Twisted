@@ -2,7 +2,8 @@ class TweetsController < ApplicationController
   before_action :set_tweet, only: %i[show edit update destroy like retweet]
 
   def index
-    @tweets = Tweet.tweets_for_me(current_user).order(created_at: :desc).page(params[:page])
+    @q = Tweet.tweets_for_me(current_user).ransack(params[:q])
+    @tweets = @q.result.order(created_at: :desc).page(params[:page])
     @tweet = Tweet.new
   end
 

@@ -18,6 +18,9 @@
   text-decoration: none;
 }
 
+body{
+  margin: 0em;
+}
 .red-icon {
   color: red;
 }
@@ -59,6 +62,11 @@
   display: inline-block;
   vertical-align: middle;
   padding-left: 0.5rem;
+}
+
+.search-bar {
+  margin-left: auto;
+  display: inline-flex;
 }
 
 .tweet-buttons{

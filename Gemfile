@@ -65,3 +65,5 @@ gem 'font_awesome5_rails'
 gem 'faker'
 # Use Ransack for the Search Bar
 gem 'ransack'
+# Use Active Admin for an Admin roles to manage
+gem 'activeadmin'
