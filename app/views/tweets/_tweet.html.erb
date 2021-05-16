@@ -16,7 +16,7 @@
       <% end %>
 
       </div>
-      <p class="card-text"><%= tweet.content %></p>
+      <p class="card-text"><%= render_hashtag(tweet.content) %></p>
       <% if tweet.ref_tweet %>
       <%= render tweet.ref_tweet, retweet: true %>
       <% end %>

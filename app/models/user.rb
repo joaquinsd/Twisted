@@ -9,6 +9,9 @@ class User < ApplicationRecord
   has_many :friends, class_name: 'Friend', foreign_key: 'user_id', dependent: :destroy
   has_many :friended_by, class_name: 'Friend', foreign_key: 'friend_user_id'
 
+  after_commit :friend_self, on: :create
+
+
   def to_s
     username
   end
