@@ -12,8 +12,11 @@
  *
  *= require_tree .
  *= require_self
+ *= stub "active_admin"
  */
-
+.a{
+  text-decoration: none;
+}
 .px-2{
   text-decoration: none;
 }

@@ -44,25 +44,27 @@ class User < ApplicationRecord
     end
   end
 
-  def friend_users
-    friends.map(&:friend_user_id)
-  end
-
   def suggested_friends
     User.where.not(id: friends.map(&:friend_user_id)).limit(4)
   end
 
+  def friend_users
+    friends.map(&:friend_user_id)
+  end
+
+  def friend_counter
+    friend_users.count
+  end
 
   def tweet_counter
     tweets.count
   end
 
   def retweet_counter
-    tweets.retweets.size
+    tweets.retweets.count
   end
 
   def like_counter
     likes.count
   end
-
 end
