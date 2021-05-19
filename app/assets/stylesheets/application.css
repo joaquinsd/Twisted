@@ -28,10 +28,15 @@ body{
   color: red;
 }
 
+.nav-ra {
+  margin-left: auto;
+}
+
 .card-tweet {
   box-shadow: 0 2px 2px 0 , 0 6px 20px 0 ;
   margin-top: 1rem;
 }
+
 
 .card-retweet {
   border-style: solid;
@@ -48,7 +53,15 @@ body{
   vertical-align: middle;
   white-space: normal;
 }
+.btn-info{
+  color: white;
+}
  
+.btn-friend{
+  background-color: lightskyblue;
+  color: white;
+
+}
 
 .tweet-header {
   white-space: normal;

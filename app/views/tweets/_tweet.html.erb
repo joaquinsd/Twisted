@@ -2,7 +2,7 @@
   <div class="card <%= local_assigns[:retweet] ? 'card-retweet' : 'card-tweet' %>">
     <div class="card-body">
       <div class="tweet-header">
-        <%= link_to image_tag(tweet.user_pic, style: 'width:50px; height:50px', class: 'user-picture'), tweet.user_pic %>
+        <%= link_to image_tag(tweet.user_pic, style: 'width:50px; height:50px', class: 'user-picture'), tweet.user_pic, target: '_blank' %>
         <div class="tweet-header-left">
           <h5 class="card-title tweet-title"><%= tweet.user %></h5> <br>
           <small class="card-subtitle text-muted">

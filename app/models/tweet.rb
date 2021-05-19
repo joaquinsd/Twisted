@@ -1,5 +1,5 @@
 class Tweet < ApplicationRecord
-  has_many :likes
+  has_many :likes,dependent: :destroy
   has_many :tweets, class_name: 'Tweet', foreign_key: 'tweet_id', dependent: :destroy
   belongs_to :user
   belongs_to :ref_tweet, class_name: 'Tweet', foreign_key: 'tweet_id', optional: true
@@ -47,7 +47,7 @@ class Tweet < ApplicationRecord
   end
 
   scope :tweets_for_me, ->(user) { where(user: user.friend_users) if user.present? }
-  scope :retweets, -> { where.not(ref_tweet: nil) }
+  scope :news, -> { last(50) }
 
 end
 

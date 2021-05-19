@@ -1,14 +1,14 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <div class="navbar-brand">
-      <%= link_to image_tag('twisted.png', style: 'width:20px; height:25px', class: 'd-inline-block align-text-top'), root_path  %> 
+      <%= link_to image_tag('twisted.png', style: 'width:20px; height:25px', class: 'd-inline-block align-text-top') , root_path  %> 
       Twisted
     </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav nav-ra">
         <% if signed_in? %>
         <li class="nav-item">
           <%= image_tag(current_user.profile_pic, style: 'width:50px; height:50px', class: 'user-picture') %>
@@ -23,6 +23,7 @@
         <li class="nav-item"><%= link_to 'Log In', new_user_session_path, class:'nav-link' %></li>
         <li class="nav-item"><%= link_to 'Sign Up', new_user_registration_path, class:'nav-link' %></li>
         <% end %>
+        <li class="nav-item"><%= link_to 'Admin', admin_root_path, class:'nav-link', target:'_blank' %></li>
       </ul>
     </div>
   </div>

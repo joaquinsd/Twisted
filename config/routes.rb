@@ -13,4 +13,8 @@ Rails.application.routes.draw do
   devise_scope :user do
     post '/users/:id/friend', to: 'users/registrations#friend', as: 'user_friend'
   end
+
+  namespace :api do
+    get 'news', to: 'api#news'
+  end
 end

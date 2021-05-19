@@ -11,6 +11,9 @@ class User < ApplicationRecord
 
   after_commit :friend_self, on: :create
 
+  def display_name
+    email
+  end
 
   def to_s
     username
