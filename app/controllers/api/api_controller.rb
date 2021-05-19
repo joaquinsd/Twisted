@@ -3,6 +3,10 @@ class Api::ApiController < ActionController::API
     render json: tweets_hash(Tweet.news)
   end
 
+  def inbetween
+    render json: tweets_hash(Tweet.inbetween(params[:start_date], params[:end_date]))
+  end
+
   def tweets_hash(tweets)
     tweets_array = []
     tweets.each do |tw|

@@ -48,6 +48,6 @@ class Tweet < ApplicationRecord
 
   scope :tweets_for_me, ->(user) { where(user: user.friend_users) if user.present? }
   scope :news, -> { last(50) }
-
+  scope :inbetween, ->(start_date, end_date) { where(created_at: start_date..end_date)}
 end
 

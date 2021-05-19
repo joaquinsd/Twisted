@@ -16,5 +16,6 @@ Rails.application.routes.draw do
 
   namespace :api do
     get 'news', to: 'api#news'
+    get ':start_date/:end_date', to: 'api#inbetween', as: 'inbetween'
   end
 end
