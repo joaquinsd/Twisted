@@ -64,7 +64,7 @@ class User < ApplicationRecord
   end
 
   def retweet_counter
-    tweets.retweets.count
+    tweets.where.not(tweet_id: nil).count
   end
 
   def like_counter

@@ -9,7 +9,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav nav-ra">
-        <% if signed_in? %>
+        <% if signed_in? && current_user != nil %>
         <li class="nav-item">
           <%= image_tag(current_user.profile_pic, style: 'width:50px; height:50px', class: 'user-picture') %>
         </li>

@@ -17,7 +17,7 @@ require 'faker'
       pp = "https://images.wikidexcdn.net/mwuploads/wikidex/thumb/f/f8/latest/20200428203046/#{name}.png/250px-#{name}.png"
     end
     User.create(email: "#{name}@pokemon.com", username: name, password: Faker::Internet.password, profile_pic: pp)
-  rescue ActiveRecord::RecordInvalid => invalid
+  rescue ActiveRecord::RecordInvalid
     next
   end
 end

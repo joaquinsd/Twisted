@@ -1,4 +1,22 @@
 class Api::ApiController < ActionController::API
+  before_action :authenticate_user!, only: :create
+
+  def authenticate
+    authenticate_or_request_with_http_basic do |username, password|
+      username == "test@example.com" && password == "123456"
+    end
+    warden.custom_failure! if performed?
+  end
+  
+  def create
+    @tweet = Tweet.new(content: params[:content], user: current_user)
+    if @tweet.save
+      render json: @tweet, status: :created
+    else
+      render json: @tweet.erros, status: :unprocessable_entity
+    end
+  end
+
   def news
     render json: tweets_hash(Tweet.news)
   end
