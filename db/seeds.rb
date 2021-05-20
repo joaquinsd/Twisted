@@ -8,7 +8,7 @@
 require 'faker'
 
 # For creating users
-60.times do
+170.times do
   begin
     name = Faker::Games::Pokemon.name
     if name == 'Nidoran'
@@ -23,19 +23,20 @@ require 'faker'
 end
 
 # For creating Tweets
-40.times do
+100.times do
   name = Faker::Games::Pokemon.name
   location = Faker::Games::Pokemon.location
   move = Faker::Games::Pokemon.move
-  quote = rand(1..4)
+  quote = rand(1..5)
   content = case quote
             when 1 then "Look a #{name} used #{move}"
             when 2 then "I'm from ##{location}"
             when 3 then "I love my #{name}!! ##{name}lovers"
             when 4 then "Is #{move} supereffective against #{name}?"
+            when 5 then "Team Rocket stole a #{name} from that Trainer!!"
             end
 
-  Tweet.create(user_id: rand(0..19), content: content)
+  Tweet.create(user_id: rand(0..100), content: content)
 end
 
 # For liking Tweets
