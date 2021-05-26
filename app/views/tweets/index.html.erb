@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<% if signed_in? %> 
+<% if user_signed_in? %> 
   <%= render 'form', tweet: @tweet %>
   <br/>
   <h4>People you should be friends with</h4>

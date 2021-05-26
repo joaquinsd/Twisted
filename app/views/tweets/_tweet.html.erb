@@ -9,7 +9,7 @@
             <%= link_to "#{distance_of_time_in_words(Time.now, tweet.created_at)} ago", tweet_path(tweet) %>
           </small>
         </div>
-        <% if signed_in? && !local_assigns[:retweet] %>
+        <% if user_signed_in? && !local_assigns[:retweet] %>
         <small class="text-muted tweet-unfriend-link">
           <%= link_to(current_user.friends?(tweet.user) ? 'Unfriend' : 'Friend', user_friend_path(tweet.user), method: :post) %>
         </small>
@@ -20,7 +20,7 @@
       <% if tweet.ref_tweet %>
       <%= render tweet.ref_tweet, retweet: true %>
       <% end %>
-      <% if signed_in? %>
+      <% if user_signed_in? %>
       <div class="card-text tweet-buttons">
         <%= link_to tweet_like_path(tweet), method: :post, class:'px-2' do %>
           <% if tweet.liked?(current_user) %>
