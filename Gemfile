@@ -67,3 +67,5 @@ gem 'faker'
 gem 'ransack'
 # Use Active Admin for an Admin roles to manage
 gem 'activeadmin'
+# Use Rack Cors for API requests
+gem 'rack-cors'

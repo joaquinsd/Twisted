@@ -1,4 +1,5 @@
 class TweetsController < ApplicationController
+  http_basic_authenticate_with name: "hello", password: "world", except: :index
   before_action :set_tweet, only: %i[show edit update destroy like retweet]
 
   def index
